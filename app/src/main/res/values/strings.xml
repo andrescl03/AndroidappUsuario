@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">proyectoUsuario</string>
+    <!--Strings - EncuestaActivity-->
+    <string name="rbtnEP">opcion</string>
 </resources>
