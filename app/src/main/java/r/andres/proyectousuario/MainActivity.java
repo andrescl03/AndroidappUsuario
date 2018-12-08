@@ -82,7 +82,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onResponse(String response) {
 
         ArrayList<JSONObject> lista = new ArrayList<JSONObject>();
-        String arrayPreguntas[] = new String[4];
+        String arrayPreguntas[] = new String[5];
+        int arrayPreguntasID[] = new int[5];
 
         try {
             JSONArray jsonArray = new JSONArray(response);
@@ -102,12 +103,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 listaEncuesta.add(x);
             }
 
-            for (int i = 0 ; i <=3 ; i++){
+            for (int i = 0 ; i <=4 ; i++){
                 arrayPreguntas[i] = listaEncuesta.get(i).getDescripcion().toString();
+                arrayPreguntasID[i] = listaEncuesta.get(i).getIdPregunta();
             }
 
 
             Intent panel = new Intent(this, Encuesta.class);
+                panel.putExtra("preguntasID" ,arrayPreguntasID );
              panel.putExtra("preguntasEncuesta", arrayPreguntas);
              startActivity(panel);
 
